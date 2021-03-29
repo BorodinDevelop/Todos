@@ -1,0 +1,17 @@
+body {
+  background: #F2F2F2;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+.expired {
+  color:red;
+}
+.onTodos{
+  display:none;
+}
+.noTodos{
+  display:block;  
+}
