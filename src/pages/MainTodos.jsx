@@ -84,22 +84,23 @@ const useStyles = makeStyles((theme) => ({
       {id:2, completed: false, title:'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. ', heading:'Второй', date:'2017-05-24T10:30'},
       {id:3, completed: false, title:'kkhshngkkhshngkkhs hngkkhs hngkkhshngk khshngkk hshngkkhs hngkkhshngkkhshng', heading:'Третий', date:'2017-05-24T10:30'} 
     ])
-      //чекбоксы
-      function toggleTodo(id)  {
-        setTodos(
-          todos.map(todo => {
-            if (todo.id === id) {
-              todo.completed = !todo.completed            
-            }
-            return todo
-          })
-        )
-        
-      }; 
-      function removeTodo(id) {
-        setTodos(todos.filter(todo => todo.id !== id))
-      }    
-  
+    //чекбоксы
+    function toggleTodo(id)  {
+      setTodos(
+        todos.map(todo => {
+          if (todo.id === id) {
+            todo.completed = !todo.completed            
+          }
+          return todo
+        })
+      )
+      
+    }; 
+    function removeTodo(id) {
+      handleClose()
+      setTodos(todos.filter(todo => todo.id !== id))
+    }    
+
     //Оболочка для задач
     function Card(props) {
       //if no todos
@@ -226,7 +227,7 @@ const useStyles = makeStyles((theme) => ({
                       TransitionComponent={Fade}
                     >
                       <MenuItem onClick={handleClose}>Edit</MenuItem>
-                      <MenuItem onClick={handleClose, removeTodo.bind(null,todo.id)}>Delete</MenuItem>
+                      <MenuItem onClick={() => removeTodo(todo.id)}>Delete</MenuItem>
                       
                     </Menu>        
                     
